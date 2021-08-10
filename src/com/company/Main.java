@@ -7,9 +7,6 @@ public class Main {
         Color[] color = Color.values();
         for (Color c : color) {
             System.out.println(c.toString());
-
         }
-
-
     }
 }

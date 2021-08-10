@@ -7,11 +7,10 @@ public enum Color {
     WHITE("#ffffff"),
     BLACK(0, 0, 0);
 
-    private String hex;
-    private int r;
-    private int g;
-    private int b;
-
+    private final String hex;
+    private final int r;
+    private final int g;
+    private final int b;
 
     @Override
     public String toString() {
@@ -35,7 +34,6 @@ public enum Color {
         this.r = r;
         this.g = g;
         this.b = b;
-
     }
 
     private String findPartHex(int partRGB){
