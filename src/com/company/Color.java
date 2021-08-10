@@ -12,15 +12,16 @@ public enum Color {
     private int g;
     private int b;
 
+
     @Override
     public String toString() {
         return "Colors { " + name() + ":  " +
                 "hex='" + hex + '\'' +
-                ", RGB = " + "("+ r + "," + g +"," + b + ")" +"}";
+                ", RGB = " + "("+ r + "," + g +"," + b + ")" +" }";
     }
 
     Color(String hex) {
-        this.hex = hex;
+       this.hex = hex;
         this.r = findPartRGB(hex.substring(1, 3));
         this.g = findPartRGB(hex.substring(3, 5));
         this.b = findPartRGB(hex.substring(5));
@@ -31,23 +32,27 @@ public enum Color {
                 findPartHex(r) +
                 findPartHex(g) +
                 findPartHex(b);
+        this.r = r;
+        this.g = g;
+        this.b = b;
+
     }
 
-    private static String findPartHex(int partRGB){
+    private String findPartHex(int partRGB){
         String partHex = Integer.toHexString(partRGB);
-        if ( partRGB < 16 )// 16-ричное значение этих чисел начинается с 0
+        if ( partRGB < 16 )// 16-ричное значение этих чисел состоит из одного символа
         {
          partHex = "0" + partHex;
         }
        return partHex;
     }
 
-    private static int findPartRGB (String s)
+    private int findPartRGB (String str)
     {
         String digits = "0123456789abcdef";
         int val = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
             int d = digits.indexOf(c);
             val = 16 * val + d;
         }
